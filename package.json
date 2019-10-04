@@ -1,0 +1,34 @@
+{
+    "name": "MarksButton",
+    "version": "1.0.0",
+    "description": "A simple script for a button to allow people to easily get my attention.",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "keywords": [],
+    "author": "Josiah Bull",
+    "license": "MIT",
+    "dependencies": {
+        "johnny-five": "^1.3.1",
+        "node-notifier": "^6.0.0",
+        "robotjs": "^0.5.1"
+    },
+    "window": {
+        "title": "node-webkit demo",
+        "icon": "iconSmall.png",
+        "toolbar": true,
+        "frame": false,
+        "width": 800,
+        "height": 500,
+        "position": "mouse",
+        "min_width": 400,
+        "min_height": 200,
+        "max_width": 800,
+        "max_height": 600
+      },
+      "webkit": {
+        "plugin": true
+      }
+}
