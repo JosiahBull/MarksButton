@@ -1,0 +1,11 @@
+D:\OneDrive\Apps\MarksButton\Testing\bin\Debug\netcoreapp3.0\Testing.exe
+D:\OneDrive\Apps\MarksButton\Testing\bin\Debug\netcoreapp3.0\Testing.deps.json
+D:\OneDrive\Apps\MarksButton\Testing\bin\Debug\netcoreapp3.0\Testing.runtimeconfig.json
+D:\OneDrive\Apps\MarksButton\Testing\bin\Debug\netcoreapp3.0\Testing.runtimeconfig.dev.json
+D:\OneDrive\Apps\MarksButton\Testing\bin\Debug\netcoreapp3.0\Testing.dll
+D:\OneDrive\Apps\MarksButton\Testing\bin\Debug\netcoreapp3.0\Testing.pdb
+D:\OneDrive\Apps\MarksButton\Testing\obj\Debug\netcoreapp3.0\Testing.csprojAssemblyReference.cache
+D:\OneDrive\Apps\MarksButton\Testing\obj\Debug\netcoreapp3.0\Testing.AssemblyInfoInputs.cache
+D:\OneDrive\Apps\MarksButton\Testing\obj\Debug\netcoreapp3.0\Testing.AssemblyInfo.cs
+D:\OneDrive\Apps\MarksButton\Testing\obj\Debug\netcoreapp3.0\Testing.dll
+D:\OneDrive\Apps\MarksButton\Testing\obj\Debug\netcoreapp3.0\Testing.pdb
