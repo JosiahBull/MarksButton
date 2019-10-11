@@ -1,17 +1,17 @@
 //Global Variables
-const int buttonTimeout = 5000;
+const unsigned long buttonTimeout = 5000;
 bool debug = false;
 String inputStr;
 //Declare Classes
 class Button {
   int _pin;
   int _mode; //Default mode is 0 (button toggles _pressed on release), mode 1 will only have _pressed true while button is held.
-  int _timePressed;
+  unsigned long _timePressed;
   bool _pressed;
   bool _output;
   bool _enabled;
   public:
-    Button(int pin) : _pin(pin), _pressed(false), _enabled(true), _mode(1), _output(false), _timePressed(-buttonTimeout) {
+    Button(int pin) : _pin(pin), _pressed(false), _enabled(true), _mode(0), _output(false), _timePressed(-buttonTimeout) {
       pinMode(_pin, INPUT);
     }
     void disable() {
@@ -34,19 +34,27 @@ class Button {
       return _output;
     }
     checkChange() {
-      if (digitalRead(_pin) != _pressed && _enabled && ((millis() - _timePressed) > buttonTimeout || _output || _mode == 1)) {
-        _timePressed = millis();
+      if (digitalRead(_pin) != _pressed && _enabled && ((millis() - _timePressed) > buttonTimeout || _output || _mode == 1) && (millis() - _timePressed) > 50) {
         if (_mode == 0) {
-          ;
+          if (digitalRead(_pin) && !_pressed) {
+            _timePressed = millis();
+            _output = !_output;
+            _pressed = !_pressed;
+            return true;
+          }
+          _pressed = !_pressed;
+          Serial.println();
+          return false;
         }
         if (_mode == 1) {
+          _timePressed = millis();
           _pressed = !_pressed;
-          _output = _pressed;
+          _output = !_output;
+          return true;
         }
-        return true;
-      } else {
-        return false;
+        Serial.println("Mode is incorrectly configured.");
       }
+      return false;
     }
 };
 class Led {
@@ -86,7 +94,7 @@ Button button(11);
 void setup() {
   Serial.begin(9600);
   delay(2000);
-  Serial.println("Type something!");
+//  Serial.println("Type something!");
 }
 //Loopy loop
 void loop() {
@@ -97,19 +105,26 @@ void loop() {
       Serial.println("Debug toggled.");
     }
     if (debug) Serial.println("I received: " + inputStr);
+    if (inputStr == "ping!") Serial.print("pong!");
     if (inputStr == "reset") resetFunc();
-    if (inputStr == "info") Serial.print("{\"ver\" : 0.1, \"time\" :" + String(millis()) + "}");
+    if (inputStr == "info") Serial.print("{\"ver\" : 1.0, \"time\" :" + String(millis()) + "}");
     if (inputStr == "led") displayLed.toggle();
     if (inputStr == "ledoff") displayLed.off();
     if (inputStr == "ledon") displayLed.on();
     if (inputStr == "ledState") displayLed.getState();
     if (inputStr == "disableButton") button.disable();
     if (inputStr == "enableButton") button.enable();
-    if (inputStr == "buttonState") button.getState();
-    if (inputStr == "buttonMode") button.getMode();
+    if (inputStr == "getButtonState") button.getState();
+    if (inputStr == "getButtonMode") button.getMode();
     inputStr = "";
   }
   if (button.checkChange()){
     displayLed.toggle();
+
+    if (displayLed.getState() == 1) {
+      Serial.print("go");
+    }
+    
+    
   }
 }
