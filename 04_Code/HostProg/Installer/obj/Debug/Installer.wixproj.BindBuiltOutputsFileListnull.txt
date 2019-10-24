@@ -1,0 +1,2 @@
+C:\Users\josia\OneDrive\Apps\0006_MarksButton\04_Code\HostProg\Installer\bin\Debug\Installer.msi
+C:\Users\josia\OneDrive\Apps\0006_MarksButton\04_Code\HostProg\Installer\bin\Debug\Installer.wixpdb
