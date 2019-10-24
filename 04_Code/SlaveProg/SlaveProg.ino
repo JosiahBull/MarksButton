@@ -89,8 +89,8 @@ class Led {
 };
 void(* resetFunc) (void) = 0;
 //Instantiate Things
-Led displayLed(7);
-Button button(9);
+Led displayLed(9);
+Button button(7);
 //Setup
 void setup() {
   Serial.begin(9600);

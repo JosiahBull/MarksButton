@@ -1,0 +1,27 @@
+C:\Users\Jo Bull\OneDrive\Apps\MarksButton\Testing\bin\Debug\Testing.exe.config
+C:\Users\Jo Bull\OneDrive\Apps\MarksButton\Testing\bin\Debug\Testing.exe
+C:\Users\Jo Bull\OneDrive\Apps\MarksButton\Testing\bin\Debug\Testing.pdb
+C:\Users\Jo Bull\OneDrive\Apps\MarksButton\Testing\obj\Debug\Testing.csprojAssemblyReference.cache
+C:\Users\Jo Bull\OneDrive\Apps\MarksButton\Testing\obj\Debug\Testing.exe
+C:\Users\Jo Bull\OneDrive\Apps\MarksButton\Testing\obj\Debug\Testing.pdb
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\Testing.exe.config
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\Testing.exe
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\Testing.pdb
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\obj\Debug\Testing.csprojAssemblyReference.cache
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\obj\Debug\Testing.exe
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\obj\Debug\Testing.pdb
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\obj\Debug\Testing.Properties.Resources.resources
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\obj\Debug\Testing.csproj.GenerateResource.cache
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\WindowsInput.dll
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\WindowsInput.xml
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\obj\Debug\Testing.csproj.CopyComplete
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\Newtonsoft.Json.dll
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\SpotifyAPI.Web.Auth.dll
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\SpotifyAPI.Web.dll
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\Unosquare.Labs.EmbedIO.dll
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\Unosquare.Swan.Lite.dll
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\Newtonsoft.Json.xml
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\SpotifyAPI.Web.xml
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\SpotifyAPI.Web.Auth.xml
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\Unosquare.Labs.EmbedIO.xml
+C:\Users\josia\OneDrive\Apps\MarksButton\Testing\bin\Debug\Unosquare.Swan.Lite.xml
