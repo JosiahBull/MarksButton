@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="2936e1ba-8488-429d-bbc4-9baf6ae02bbf" UpgradeCode="2936e1ba-8488-429d-bbc4-9baf6ae02bbf" Version="1.0.0.0" Language="1033" Name="MarksButton" Manufacturer="JB">
+    <Package InstallerVersion="300" Compressed="yes"/>
+    <Media Id="1" Cabinet="JB.MarksButton" EmbedCab="yes" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="APPLICATIONROOTDIRECTORY" Name="MarksButton"/>
+      </Directory>
+      <!-- Step 1: Define the directory structure -->
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="MarksButton"/>
+      </Directory>
+      <Directory Id="ProgramStartupFolder">
+        <Directory Id="StartupFolder" Name="MarksButton"/>
+      </Directory>
+    </Directory>
+
+    <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
+      <Component Id="myapplication.exe" Guid="293641ba-8488-429d-bbc4-9baf6ae02bbf">
+        <File Id="myapplication.exe" Source="$(var.MarksButton.TargetPath)" KeyPath="yes" Checksum="yes"/>
+      </Component>
+      <Component Id="windowsInput" Guid="bc416922-a8ab-422a-8e58-54a014555ffe">
+        <File Id="windowsInput" Source="$(var.MarksButton.TargetDir)\WindowsInput.dll" KeyPath="yes"/>
+      </Component>
+      <Component Id="systemDiagnostics" Guid="9258ecc2-b272-4cdf-a6f3-4726a8bf3cb0">
+        <File Id="systemDiagnostics" Source="$(var.MarksButton.TargetDir)\System.Diagnostics.DiagnosticSource.dll" KeyPath="yes"/>
+      </Component>
+      <Component Id="QueryStringNETCore" Guid="14f7e5a7-e911-44bb-80d2-9cc1eca5af7f">
+        <File Id="QueryStringNETCore" Source="$(var.MarksButton.TargetDir)\QueryString.NETCore.dll" KeyPath="yes"/>
+      </Component>
+      <Component Id="UWP.Notifications" Guid="f0a47178-3551-4672-8956-a0823bbb9ee3">
+        <File Id="UWP.Notifications" Source="$(var.MarksButton.TargetDir)\Microsoft.Toolkit.Uwp.Notifications.dll" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <!-- Step 2: Add the shortcut to your installer package -->
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="2936e1ba-8488-429d-bbc4-9baf6ae02bbf">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+           Name="MarksButton"
+           Description="A small button to allow people to get my attention."
+           Target="[#myapplication.exe]"
+           WorkingDirectory="APPLICATIONROOTDIRECTORY"
+        >
+          <ShortcutProperty Key="System.AppUserModel.ID" Value="JB.MarksButton"/>
+          <ShortcutProperty Key="System.AppUserModel.ToastActivatorCLSID" Value="{2936e1ba-8488-429d-bbc4-9baf6ae02bbf}"/>
+        </Shortcut>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\JB\MarksButton" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="StartupFolder">
+      <Component Id="StartupApplicationShortcut" Guid="64b5bd36-b99f-480e-bd5b-38b77fce8ffd">
+        <Shortcut Id="StartupFolderShortcut"
+           Name="MarksButton"
+           Description="A small button to allow people to get my attention."
+           Target="[#myapplication.exe]"
+           WorkingDirectory="APPLICATIONROOTDIRECTORY"
+        >
+          <ShortcutProperty Key="System.AppUserModel.ID" Value="JB.MarksButton"/>
+          <ShortcutProperty Key="System.AppUserModel.ToastActivatorCLSID" Value="{2936e1ba-8488-429d-bbc4-9baf6ae02bbf}"/>
+        </Shortcut>
+        <RemoveFolder Id="StartupFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\JB\MarksButton" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="MainApplication" Title="MarksButton" Level="1">
+      <ComponentRef Id="myapplication.exe" />
+      <!-- Step 3: Tell WiX to install the shortcut -->
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="StartupApplicationShortcut" />
+      <ComponentRef Id="windowsInput" />
+      <ComponentRef Id="systemDiagnostics" />
+      <ComponentRef Id="QueryStringNETCore" />
+      <ComponentRef Id="UWP.Notifications" />
+    </Feature>
+  </Product>
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="ProductComponent">
+        <File Source="$(var.MarksButton.TargetPath)" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

@@ -1,0 +1,10 @@
+C:\Users\josia\OneDrive\Apps\0006_MarksButton\04_Code\temp2\Installer\bin\Debug\Installer.msi
+C:\Users\josia\OneDrive\Apps\0006_MarksButton\04_Code\temp2\Installer\bin\Debug\Installer.wixpdb
+obj\Debug\Product.wixobj
+obj\Debug\Installer.wixproj.BindContentsFileListnull.txt
+obj\Debug\Installer.wixproj.BindOutputsFileListnull.txt
+obj\Debug\Installer.wixproj.BindBuiltOutputsFileListnull.txt
+C:\Users\josia\OneDrive\Apps\0006_MarksButton\04_Code\HostProg\Installer\bin\Debug\Installer.msi
+C:\Users\josia\OneDrive\Apps\0006_MarksButton\04_Code\HostProg\Installer\bin\Debug\Installer.wixpdb
+D:\OneDrive\Apps\0006_MarksButton\04_Code\HostProg\Installer\bin\Debug\Installer.msi
+D:\OneDrive\Apps\0006_MarksButton\04_Code\HostProg\Installer\bin\Debug\Installer.wixpdb
