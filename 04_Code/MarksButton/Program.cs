@@ -36,7 +36,7 @@ namespace MarksButton
         {
             _serialPort.Close();
         }
-        private static string GetPortName()
+        private static string GetPortName() //Gets all open ports, pings each one until it gets the expected response and then returns the name of that port.
         {
             string portName = "";
             string[] availablePorts = SerialPort.GetPortNames();
@@ -44,7 +44,7 @@ namespace MarksButton
             {
                 portName = availablePorts[0];
             }
-            while (portName == "")
+            while (portName.Length == 0)
             {
                 foreach (string port in availablePorts)
                 {
@@ -56,31 +56,31 @@ namespace MarksButton
                         checkPort.Open();
                         try
                         {
-                            checkPort.Write("ping!");
+                            checkPort.Write("ping!"); //The arduino is looking for this, and should respond with "pong!"
                             string response = checkPort.ReadLine();
                             if (response.Contains("pong!"))
                             {
                                 portName = port;
                             }
                         }
-                        catch (TimeoutException) { }
+                        catch (TimeoutException) { } //Cannot connect to port (timeout), ignore it.
                         checkPort.Close();
                     }
-                    catch (UnauthorizedAccessException) { }
+                    catch (UnauthorizedAccessException) { } //Something else is connected to the Serial Port, ignore it.
                 }
                 availablePorts = SerialPort.GetPortNames();
                 Thread.Sleep(200);
             }
             return portName;
         }
-        private static void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        private static void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e) //The respond handler from the Arduino
         {
             SerialPort sp = (SerialPort)sender;
             string indata = sp.ReadExisting();
-            if (indata.Contains("press")) {
+            if (indata.Contains("press")) { //This is sent when the button is pressed down and the LED is turned on.
                 notificationHandler.combinationNotify();
             }   
-            if (indata.Contains("release"))
+            if (indata.Contains("release")) //This is sent when the button is pressed a second time and the LED is turned off.
             {
                 notificationHandler.toggleMusic();
             }
@@ -103,7 +103,7 @@ namespace MarksButton
             ToastContent toastContent = new ToastContent()
             {
                 Launch = "buttonPressed",
-                Audio = new ToastAudio { Silent = true },
+                Audio = new ToastAudio { Silent = true }, //Silent Toast Notification. :)
                 Visual = new ToastVisual()
                 {
                     BindingGeneric = new ToastBindingGeneric()
@@ -125,9 +125,9 @@ namespace MarksButton
             var doc = new XmlDocument();
             doc.LoadXml(toastContent.GetContent());
             var toast = new ToastNotification(doc);
-            DesktopNotificationManagerCompat.CreateToastNotifier().Show(toast);
+            DesktopNotificationManagerCompat.CreateToastNotifier().Show(toast); //Spawn me a toast notification.
         }
-        public static void toggleMusic()
+        public static void toggleMusic() //Simulates a keyboard press on the media play/pause keys. This isn't particuarly intelligent, so if there isn't music playing when the button is pressed it will play music...
         {
             InputSimulator _inputSimulator = new InputSimulator();
             _inputSimulator.Keyboard.KeyPress(VirtualKeyCode.MEDIA_PLAY_PAUSE);
@@ -138,9 +138,9 @@ namespace MarksButton
     [Guid("2936e1ba-8488-429d-bbc4-9baf6ae02bbf"), ComVisible(true)]
     public class MyNotificationActivator : NotificationActivator
     {
-        public override void OnActivated(string invokedArgs, NotificationUserInput userInput, string appUserModelId)
+        public override void OnActivated(string invokedArgs, NotificationUserInput userInput, string appUserModelId) //What to do when the toast notification is clicked.
         {
-            DesktopNotificationManagerCompat.History.Clear();
+            DesktopNotificationManagerCompat.History.Clear(); //Clear this and all previous notifications from the notification bar.
             ;
         }
     }
@@ -148,7 +148,7 @@ namespace MarksButton
     {
         private NotifyIcon trayIcon;
 
-        public hiddenStartApplicationContext()
+        public hiddenStartApplicationContext() //Starting in the tray.
         {
             trayIcon = new NotifyIcon()
             {
@@ -161,7 +161,7 @@ namespace MarksButton
                 Visible = true
             };
         }
-        void Exit(object sender, EventArgs e)
+        void Exit(object sender, EventArgs e) //How to close the application.
         {
             trayIcon.Visible = false;
             serialHandler.stopSerial();
@@ -172,7 +172,7 @@ namespace MarksButton
     static class Program
     {
         [STAThread]
-        static void Main()
+        static void Main() //The entry point for the program.
         {
             DesktopNotificationManagerCompat.RegisterAumidAndComServer<MyNotificationActivator>("JB.MarksButton");
             DesktopNotificationManagerCompat.RegisterActivator<MyNotificationActivator>();
@@ -183,7 +183,7 @@ namespace MarksButton
         }
     }
 }
-namespace DesktopNotifications
+namespace DesktopNotifications //This boi was copy-pasted from Microsofts site.
 {
     public class DesktopNotificationManagerCompat
     {
