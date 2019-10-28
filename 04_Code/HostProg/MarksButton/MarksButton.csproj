@@ -64,6 +64,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>iconSmall.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -129,6 +132,11 @@
   <ItemGroup>
     <PackageReference Include="InputSimulator">
       <Version>1.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers">
+      <Version>2.9.6</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.Platforms">
       <Version>1.1.0</Version>
@@ -285,9 +293,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\iconSmall.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
@@ -307,6 +312,10 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="iconSmall.ico" />
+    <None Include="Resources\notification.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

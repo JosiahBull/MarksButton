@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\josia\\OneDrive\\Apps\\0006_MarksButton\\04_Code\\HostProg\\MarksButton\\MarksButton.csproj": {}
+    "D:\\OneDrive\\Apps\\0006_MarksButton\\04_Code\\HostProg\\MarksButton\\MarksButton.csproj": {}
   },
   "projects": {
-    "C:\\Users\\josia\\OneDrive\\Apps\\0006_MarksButton\\04_Code\\HostProg\\MarksButton\\MarksButton.csproj": {
+    "D:\\OneDrive\\Apps\\0006_MarksButton\\04_Code\\HostProg\\MarksButton\\MarksButton.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\josia\\OneDrive\\Apps\\0006_MarksButton\\04_Code\\HostProg\\MarksButton\\MarksButton.csproj",
+        "projectUniqueName": "D:\\OneDrive\\Apps\\0006_MarksButton\\04_Code\\HostProg\\MarksButton\\MarksButton.csproj",
         "projectName": "MarksButton",
-        "projectPath": "C:\\Users\\josia\\OneDrive\\Apps\\0006_MarksButton\\04_Code\\HostProg\\MarksButton\\MarksButton.csproj",
-        "packagesPath": "C:\\Users\\josia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\josia\\OneDrive\\Apps\\0006_MarksButton\\04_Code\\HostProg\\MarksButton\\obj\\",
+        "projectPath": "D:\\OneDrive\\Apps\\0006_MarksButton\\04_Code\\HostProg\\MarksButton\\MarksButton.csproj",
+        "packagesPath": "C:\\Users\\josiah.bull.BLUEBARN\\.nuget\\packages\\",
+        "outputPath": "D:\\OneDrive\\Apps\\0006_MarksButton\\04_Code\\HostProg\\MarksButton\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\josia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\josiah.bull.BLUEBARN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -37,6 +37,12 @@
             "InputSimulator": {
               "target": "Package",
               "version": "[1.0.4, )"
+            },
+            "Microsoft.CodeAnalysis.FxCopAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.9.6, )"
             },
             "Microsoft.NETCore.Platforms": {
               "target": "Package",

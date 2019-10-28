@@ -66,12 +66,12 @@ class Led {
       pinMode(_pin, OUTPUT);
     }
     void on() {
-      digitalWrite(_pin, HIGH);
+      analogWrite(_pin, 40);
       _isOn = true;
       if (debug) Serial.println("The led on pin: " + String(_pin) + " has been turned on.");
     }
     void off() {
-      digitalWrite(_pin, LOW);
+      analogWrite(_pin, 0);
       _isOn = false;
       if (debug) Serial.println("The led on pin: " + String(_pin) + " has been turned off.");
     }
@@ -121,7 +121,10 @@ void loop() {
   }
   if (button.checkChange()){
     displayLed.toggle();
-    Serial.println("go");    
-    
+    if (displayLed.getState() == 1) {
+      Serial.println("press");
+    } else {
+      Serial.println("release");
+    }
   }
 }

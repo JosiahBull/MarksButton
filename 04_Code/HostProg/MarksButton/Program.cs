@@ -16,6 +16,7 @@ using DesktopNotifications;
 using GuidAttribute = System.Runtime.InteropServices.GuidAttribute;
 using Windows.Data.Xml.Dom;
 using MarksButton.Properties;
+using System.Media;
 
 namespace MarksButton
 {
@@ -76,23 +77,33 @@ namespace MarksButton
         {
             SerialPort sp = (SerialPort)sender;
             string indata = sp.ReadExisting();
-            if (indata.Contains("go")) {
+            if (indata.Contains("press")) {
                 notificationHandler.combinationNotify();
             }   
+            if (indata.Contains("release"))
+            {
+                notificationHandler.toggleMusic();
+            }
         }
     }
     public static class notificationHandler
     {
         public static void combinationNotify()
         {
-            pauseMusic();
+            toggleMusic();
+            playSound();
             toastNotification();
         }
-        public static void toastNotification()
+        private static void playSound()
+        {
+            new SoundPlayer(Resources.notification).Play();
+        }
+        private static void toastNotification()
         {
             ToastContent toastContent = new ToastContent()
             {
                 Launch = "buttonPressed",
+                Audio = new ToastAudio { Silent = true },
                 Visual = new ToastVisual()
                 {
                     BindingGeneric = new ToastBindingGeneric()
@@ -116,7 +127,7 @@ namespace MarksButton
             var toast = new ToastNotification(doc);
             DesktopNotificationManagerCompat.CreateToastNotifier().Show(toast);
         }
-        public static void pauseMusic()
+        public static void toggleMusic()
         {
             InputSimulator _inputSimulator = new InputSimulator();
             _inputSimulator.Keyboard.KeyPress(VirtualKeyCode.MEDIA_PLAY_PAUSE);
@@ -142,6 +153,7 @@ namespace MarksButton
             trayIcon = new NotifyIcon()
             {
                 Icon = Resources.iconSmall,
+                Text = "MarksButton",
                 ContextMenu = new ContextMenu(new MenuItem[]
                 {
                     new MenuItem("Exit", Exit)
